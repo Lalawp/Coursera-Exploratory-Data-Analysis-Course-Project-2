@@ -1,6 +1,8 @@
 (##Subsets data for Baltimore City
 NEIBaltimore <- NEI[which(NEI$fips=="24510"), ]
 
+library("plyr")
+
 ##Uses ddply to subset, apply sum function, and recombine
 Total <- ddply(NEIBaltimore, .(type, year), function(x) sum(x$Emissions))
 
